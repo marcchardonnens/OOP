@@ -71,37 +71,9 @@ public class Temperatur {
         this.tempCelsius = Math.max(newTemp, -273.15f);
     }
 
-    public String GetAggregatszustand(String element){
-        float meltingTemp;
-        float boilingTemp;
-        switch (element) {
-            case "N" :
-                meltingTemp = -210;
-                boilingTemp = -195;
-                break;
+    public Aggregatszustand GetAggregatszustand(AElement element){
 
-            case "Pb" :
-                meltingTemp = 327;
-                boilingTemp = 1749;
-                break;
-
-            case "Hg" :
-                meltingTemp = -38;
-                boilingTemp = 357;
-                break;
-            default:
-                return "This type of Data is known for this Element";
-
-        }
-        if(tempCelsius <= meltingTemp)
-        {
-            return "fest";
-        }
-        if(tempCelsius >= boilingTemp)
-        {
-            return "gasförmig";
-        }
-        return "fest";
+        return element.GetAggregatszustand(tempCelsius);
 
     }
 

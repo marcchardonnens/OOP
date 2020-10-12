@@ -4,7 +4,7 @@ package ch.hslu.oop.schnittstellen;
 /**
  * Interface für KLassen die an und ausgeschaltet werden können.
  */
-public interface Switchable {
+public interface ISwitchable {
 
     /**
      * Schaltet das Objekt an.

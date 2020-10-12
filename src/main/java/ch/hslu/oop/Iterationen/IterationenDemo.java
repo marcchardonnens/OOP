@@ -1,6 +1,6 @@
 package ch.hslu.oop.Iterationen;
 
-public class Demo {
+public class IterationenDemo {
 
 
     public void AufgabeA ()

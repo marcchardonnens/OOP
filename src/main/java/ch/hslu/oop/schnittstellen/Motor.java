@@ -1,11 +1,12 @@
 package ch.hslu.oop.schnittstellen;
 
-public class Motor extends AbstractSwitchable {
+public class Motor extends ASwitchable {
 
     private boolean isOn = false;
     private final int rpm;
 
     public Motor(int rpm) {
+        name = "Motor" + switchCount;
         this.rpm = rpm;
     }
 
