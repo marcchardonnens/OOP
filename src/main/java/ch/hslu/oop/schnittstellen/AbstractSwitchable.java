@@ -1,19 +1,8 @@
 package ch.hslu.oop.schnittstellen;
 
-public class Motor extends AbstractSwitchable {
+public abstract class AbstractSwitchable implements Switchable {
 
-    private boolean isOn = false;
-    private final int rpm;
-
-    public Motor(int rpm) {
-        this.rpm = rpm;
-    }
-
-    public void arbeiten()
-    {
-
-    }
-
+    boolean isOn;
 
     @Override
     public void switchOn() {
@@ -34,4 +23,5 @@ public class Motor extends AbstractSwitchable {
     public boolean isSwitchedOff() {
         return !isOn;
     }
+
 }

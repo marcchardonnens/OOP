@@ -3,8 +3,8 @@ package ch.hslu.oop.Kontrollstrukturen;
 import java.util.Objects;
 
 public class Point {
-    private final int x;
-    private final int y;
+    private int x;
+    private int y;
 
     public Point(final int x, final int y){
         this.x = x;
@@ -17,6 +17,14 @@ public class Point {
 
     public int getY() {
         return y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 
     public int getQuadrant(){
@@ -57,12 +65,15 @@ public class Point {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Point point = (Point) o;
-        return x == point.x &&
-                y == point.y;
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Point)) {
+            return false;
+        }
+        final Point other = (Point) obj;
+        return this.x == other.x && this.y == other.y;
     }
 
     @Override
