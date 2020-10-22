@@ -4,8 +4,10 @@ public class Lead extends AElement {
 
     public Lead()
     {
-        this.meltingPoint = 327;
-        this.boilingPoint = 1749;
+        this.tempMeltingPoint = new Temperatur(327);
+        this.tempBoilingPoint = new Temperatur(1749);
         this.shortName = "Pb";
     }
+
+
 }

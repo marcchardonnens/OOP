@@ -2,30 +2,37 @@ package ch.hslu.oop.temperatur;
 
 public abstract class AElement {
 
-    protected float meltingPoint;
-    protected float boilingPoint;
+    protected Temperatur tempMeltingPoint;
+    protected Temperatur tempBoilingPoint;
     protected String shortName;
 
-    public float getBoilingPoint() {
-        return boilingPoint;
+    public Temperatur getTempBoilingPoint() {
+        return tempBoilingPoint;
     }
 
-    public float getMeltingPoint() {
-        return meltingPoint;
+    public Temperatur getTempMeltingPoint() {
+        return tempMeltingPoint;
     }
 
-    public Aggregatszustand GetAggregatszustand(final float temperatur)
+    public Aggregatszustand GetAggregatszustand(final Temperatur temperatur)
     {
-        if(meltingPoint > temperatur)
+        if(tempMeltingPoint.isHigherThan(temperatur))
         {
             return Aggregatszustand.fest;
         }
-        else if(boilingPoint < temperatur)
+        else if(tempBoilingPoint.isLowerThan(temperatur))
         {
             return Aggregatszustand.gasfoermig;
         }
         return Aggregatszustand.fluessig;
     }
 
-
+    @Override
+    public String toString() {
+        return this.getClass().getName() + "{" +
+                "tempMeltingPoint=" + tempMeltingPoint.getTempCelsius() +
+                ", tempBoilingPoint=" + tempBoilingPoint.getTempCelsius() +
+                ", shortName='" + shortName + '\'' +
+                '}';
+    }
 }

@@ -71,10 +71,39 @@ public class Temperatur {
         this.tempCelsius = Math.max(newTemp, -273.15f);
     }
 
+
+    /**
+     * Exercise 1.3 g)
+     * @param temp: Subtracts a value to the current temperatur in Celsius or Kelvin.
+     *              If value the result is lower than -273.15 then the value will be set to that number.
+     */
+    public void subtractTemp(float temp)
+    {
+        addTemp(temp * -1);
+    }
+
+    @Override
+    public String toString() {
+        return "Temperatur{" +
+                "tempCelsius=" + tempCelsius +
+                '}';
+    }
+
     public Aggregatszustand GetAggregatszustand(AElement element){
 
-        return element.GetAggregatszustand(tempCelsius);
+        return element.GetAggregatszustand(this);
 
     }
+
+    public boolean isHigherThan(Temperatur temp)
+    {
+        return this.tempCelsius > temp.tempCelsius;
+    }
+
+    public boolean isLowerThan(Temperatur temp)
+    {
+        return this.tempCelsius < temp.tempCelsius;
+    }
+
 
 }

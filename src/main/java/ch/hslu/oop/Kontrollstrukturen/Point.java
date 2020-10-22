@@ -11,7 +11,7 @@ public class Point {
         this.y = y;
     }
 
-    
+
     public Point(final Point p)
     {
         this.x = p.getX();
