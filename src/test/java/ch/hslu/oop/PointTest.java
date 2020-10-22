@@ -152,4 +152,37 @@ final class PointTest {
         final Point point2 = new Point(2, 1);
         assertNotEquals(point1, point2);
     }
+
+    /**
+     * {@link ch.hslu.oop.Kontrollstrukturen.Point#moveRelative(int, int)}
+     */
+    @Test
+    void testMoveRelative1() {
+        final Point p = new Point(1,1);
+        p.moveRelative(3,4);
+        assertEquals(4,p.getX());
+        assertEquals(5,p.getY());
+    }
+
+    /**
+     * {@link ch.hslu.oop.Kontrollstrukturen.Point#moveRelative(Point)}
+     */
+    @Test
+    void testMoveRelative2() {
+        final Point p = new Point(2,2);
+        p.moveRelative(new Point(1,2));
+        assertEquals(3,p.getX());
+        assertEquals(4,p.getY());
+    }
+
+    /**
+     * {@link ch.hslu.oop.Kontrollstrukturen.Point#moveRelative(double, int)} )}
+     */
+    @Test
+    void testMoveRelative3() {
+        final Point p = new Point(1,3);
+        p.moveRelative(45d,5);
+        assertEquals(4,p.getX());
+        assertEquals(6,p.getY());
+    }
 }

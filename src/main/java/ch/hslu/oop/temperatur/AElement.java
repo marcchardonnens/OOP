@@ -22,9 +22,9 @@ public abstract class AElement {
         }
         else if(boilingPoint < temperatur)
         {
-            return Aggregatszustand.gasförmig;
+            return Aggregatszustand.gasfoermig;
         }
-        return Aggregatszustand.flüssig;
+        return Aggregatszustand.fluessig;
     }
 
 

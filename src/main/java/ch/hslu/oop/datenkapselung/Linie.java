@@ -20,12 +20,12 @@ public class Linie {
 
     public final Point getStartPoint()
     {
-        return new Point(p1.getX(), p1.getY());
+        return new Point(p1);
     }
 
     public final Point getEndPoint()
     {
-        return new Point(p2.getX(), p2.getY());
+        return new Point(p2);
     }
 
     //alternative way

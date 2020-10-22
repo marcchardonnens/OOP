@@ -11,6 +11,13 @@ public class Point {
         this.y = y;
     }
 
+    
+    public Point(final Point p)
+    {
+        this.x = p.getX();
+        this.y = p.getY();
+    }
+
     public int getX() {
         return x;
     }
@@ -54,6 +61,25 @@ public class Point {
                 return 1;
             }
         }
+    }
+
+    public void moveRelative(final int x, final int y)
+    {
+        this.x = this.x + x;
+        this.y = this.y + y;
+    }
+
+    public  void moveRelative(final Point p)
+    {
+        this.x = this.x + p.getX();
+        this.y = this.y + p.getY();
+    }
+
+    public void moveRelative(final double grad, final int betrag)
+    {
+        //x und y sind ints, Kommastellen werden abgezwackt
+        this.x = this.x + (int) (Math.cos(Math.toRadians(grad)) * betrag);
+        this.y = this.y + (int) (Math.sin(Math.toRadians(grad)) * betrag);
     }
 
     @Override

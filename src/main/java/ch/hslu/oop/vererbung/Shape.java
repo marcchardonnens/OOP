@@ -1,15 +1,15 @@
 package ch.hslu.oop.vererbung;
 
+import ch.hslu.oop.Kontrollstrukturen.Point;
+
 public abstract class Shape {
-    private int x;
-    private int y;
+    Point point;
     protected Shape(final int x, final int y) {
-        this.x = x;
-        this.y = y;
+        point = new Point(x,y);
     }
     public final void move(final int newX, final int newY) {
-        this.x = newX;
-        this.y = newY;
+        point.setX(newX);
+        point.setY(newY);
     }
     public abstract int getPerimeter();
 
