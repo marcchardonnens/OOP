@@ -89,7 +89,7 @@ public class Temperatur {
                 '}';
     }
 
-    public Aggregatszustand GetAggregatszustand(AElement element){
+    public Aggregatszustand getAggregatszustand(AElement element){
 
         return element.GetAggregatszustand(this);
 

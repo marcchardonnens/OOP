@@ -21,13 +21,12 @@ public class Circle extends Shape {
         this.diameter = diameter;
     }
 
-    public int getArea()
+    public double getArea()
     {
-        return (int) (Math.pow(diameter/2, 2) * Math.PI);
+        return Math.pow(diameter/2, 2) * Math.PI;
     }
 
-    @Override
-    public int getPerimeter() {
-        return 0;
+    public double getPerimeter() {
+        return diameter * Math.PI;
     }
 }

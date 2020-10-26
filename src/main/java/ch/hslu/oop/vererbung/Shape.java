@@ -1,6 +1,6 @@
 package ch.hslu.oop.vererbung;
 
-import ch.hslu.oop.Kontrollstrukturen.Point;
+import ch.hslu.oop.kontrollstrukturen.Point;
 
 public abstract class Shape {
     Point point;
@@ -11,6 +11,12 @@ public abstract class Shape {
         point.setX(newX);
         point.setY(newY);
     }
-    public abstract int getPerimeter();
+
+    public Point getPoint()
+    {
+        return new Point(point);
+    }
+
+
 
 }

@@ -1,6 +1,6 @@
 package ch.hslu.oop.vererbung;
 
-import org.junit.jupiter.api.AfterEach;
+import ch.hslu.oop.kontrollstrukturen.Point;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -8,36 +8,49 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SquareTest {
 
-    Square s;
+    Square square;
+
     @BeforeEach
-    void setUp() {
-        s = new Square(0,0,10);
+    public void SetUp()
+    {
+        square = new Square(0,0,5);
+    }
+
+    @Test
+    void move() {
+        square.move(2,2);
+        assertEquals(new Point(2,2), square.getPoint());
+    }
+
+    @Test
+    void getPoint() {
+        assertNotNull(square.getPoint());
     }
 
     @Test
     void getHeight() {
-        assert(10 == s.getHeight());
+        assertEquals(5,square.getHeight());
     }
 
     @Test
     void getWidth() {
-        assert(10 == s.getWidth());
-    }
-
-    @Test
-    void changeDimension() {
-
+        assertEquals(5, square.getWidth());
     }
 
     @Test
     void getArea() {
+        assertEquals(25, square.getArea());
     }
 
     @Test
-    void testGetPerimeter() {
+    void changeDimension() {
+        square.changeDimension(3);
+        assertEquals(3, square.getWidth());
+        assertEquals(3, square.getHeight());
     }
 
     @Test
-    void testMove() {
+    void getPerimeter() {
+        assertEquals(20, square.getPerimeter());
     }
 }

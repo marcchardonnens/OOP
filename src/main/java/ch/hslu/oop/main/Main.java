@@ -1,6 +1,6 @@
 package ch.hslu.oop.main;
 
-import ch.hslu.oop.Kontrollstrukturen.Point;
+import ch.hslu.oop.kontrollstrukturen.Point;
 import ch.hslu.oop.datenkapselung.Linie;
 
 public class Main {

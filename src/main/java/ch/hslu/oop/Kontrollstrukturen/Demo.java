@@ -1,4 +1,4 @@
-package ch.hslu.oop.Kontrollstrukturen;
+package ch.hslu.oop.kontrollstrukturen;
 
 public class Demo {
 

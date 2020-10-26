@@ -15,18 +15,17 @@
  */
 
 
-package ch.hslu.oop;
+package ch.hslu.oop.kontrollstruckturen;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import ch.hslu.oop.kontrollstrukturen.Point;
 import org.junit.jupiter.api.Test;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
-
-import ch.hslu.oop.Kontrollstrukturen.*;
 
 
 /**
@@ -52,7 +51,7 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.oop.Kontrollstrukturen.Point#getQuadrant()}.
+     * Test {@link ch.hslu.oop.kontrollstrukturen.Point#getQuadrant()}.
      */
     @Test
     void testGetQuadrant1() {
@@ -60,7 +59,7 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.oop.Kontrollstrukturen.Point#getQuadrant()}.
+     * Test {@link ch.hslu.oop.kontrollstrukturen.Point#getQuadrant()}.
      */
     @Test
     void testGetQuadrant2() {
@@ -68,7 +67,7 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.oop.Kontrollstrukturen.Point#getQuadrant()}.
+     * Test {@link ch.hslu.oop.kontrollstrukturen.Point#getQuadrant()}.
      */
     @Test
     void testGetQuadrant3() {
@@ -76,7 +75,7 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.oop.Kontrollstrukturen.Point#getQuadrant()}.
+     * Test {@link ch.hslu.oop.kontrollstrukturen.Point#getQuadrant()}.
      */
     @Test
     void testGetQuadrant4() {
@@ -84,7 +83,7 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.oop.Kontrollstrukturen.Point#getQuadrant()}.
+     * Test {@link ch.hslu.oop.kontrollstrukturen.Point#getQuadrant()}.
      */
     @Test
     void testGetQuadrantXAchse() {
@@ -92,7 +91,7 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.oop.Kontrollstrukturen.Point#getQuadrant()}.
+     * Test {@link ch.hslu.oop.kontrollstrukturen.Point#getQuadrant()}.
      */
     @Test
     void testGetQuadrantYAchse() {
@@ -100,7 +99,7 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.oop.Kontrollstrukturen.Point#getQuadrant()}.
+     * Test {@link ch.hslu.oop.kontrollstrukturen.Point#getQuadrant()}.
      */
     @Test
     void testGetQuadrantNullpunkt() {
@@ -108,7 +107,7 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.oop.Kontrollstrukturen.Point#toString()}.
+     * Test {@link ch.hslu.oop.kontrollstrukturen.Point#toString()}.
      */
     @Test
     void testToString() {
@@ -116,7 +115,7 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.oop.Kontrollstrukturen.Point#equals(java.lang.Object)} Contract.
+     * Test {@link ch.hslu.oop.kontrollstrukturen.Point#equals(java.lang.Object)} Contract.
      */
     @Test
     void testEqualsContract() {
@@ -124,59 +123,59 @@ final class PointTest {
     }
 
     /**
-     * Test {@link ch.hslu.oop.Kontrollstrukturen.Point#equals(java.lang.Object)}.
+     * Test {@link ch.hslu.oop.kontrollstrukturen.Point#equals(java.lang.Object)}.
      */
     @Test
     void testEqualsSame() {
-        final Point point1 = new Point(1, 1);
-        final Point point2 = point1;
+        final ch.hslu.oop.kontrollstrukturen.Point point1 = new Point(1, 1);
+        final ch.hslu.oop.kontrollstrukturen.Point point2 = point1;
         assertEquals(point1, point2);
     }
 
     /**
-     * Test {@link ch.hslu.oop.Kontrollstrukturen.Point#equals(java.lang.Object)}.
+     * Test {@link ch.hslu.oop.kontrollstrukturen.Point#equals(java.lang.Object)}.
      */
     @Test
     void testEqualsEqual() {
-        final Point point1 = new Point(1, 1);
-        final Point point2 = new Point(1, 1);
+        final ch.hslu.oop.kontrollstrukturen.Point point1 = new Point(1, 1);
+        final ch.hslu.oop.kontrollstrukturen.Point point2 = new Point(1, 1);
         assertEquals(point1, point2);
     }
 
     /**
-     * Test {@link ch.hslu.oop.Kontrollstrukturen.Point#equals(java.lang.Object)}.
+     * Test {@link ch.hslu.oop.kontrollstrukturen.Point#equals(java.lang.Object)}.
      */
     @Test
     void testEqualsNotEqual() {
-        final Point point1 = new Point(1, 2);
-        final Point point2 = new Point(2, 1);
+        final ch.hslu.oop.kontrollstrukturen.Point point1 = new Point(1, 2);
+        final ch.hslu.oop.kontrollstrukturen.Point point2 = new Point(2, 1);
         assertNotEquals(point1, point2);
     }
 
     /**
-     * {@link ch.hslu.oop.Kontrollstrukturen.Point#moveRelative(int, int)}
+     * {@link ch.hslu.oop.kontrollstrukturen.Point#moveRelative(int, int)}
      */
     @Test
     void testMoveRelative1() {
-        final Point p = new Point(1,1);
+        final ch.hslu.oop.kontrollstrukturen.Point p = new Point(1,1);
         p.moveRelative(3,4);
         assertEquals(4,p.getX());
         assertEquals(5,p.getY());
     }
 
     /**
-     * {@link ch.hslu.oop.Kontrollstrukturen.Point#moveRelative(Point)}
+     * {@link ch.hslu.oop.kontrollstrukturen.Point#moveRelative(ch.hslu.oop.kontrollstrukturen.Point)}
      */
     @Test
     void testMoveRelative2() {
-        final Point p = new Point(2,2);
+        final ch.hslu.oop.kontrollstrukturen.Point p = new ch.hslu.oop.kontrollstrukturen.Point(2,2);
         p.moveRelative(new Point(1,2));
         assertEquals(3,p.getX());
         assertEquals(4,p.getY());
     }
 
     /**
-     * {@link ch.hslu.oop.Kontrollstrukturen.Point#moveRelative(double, int)} )}
+     * {@link ch.hslu.oop.kontrollstrukturen.Point#moveRelative(double, int)} )}
      */
     @Test
     void testMoveRelative3() {
