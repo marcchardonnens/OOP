@@ -9,8 +9,13 @@
         <module name="OOP" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="11">
-      <module name="OOP" target="1.8" />
+    <bytecodeTargetLevel>
+      <module name="OOP" target="11" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="OOP" options="-Xlint:all,-processing" />
+    </option>
   </component>
 </project>
