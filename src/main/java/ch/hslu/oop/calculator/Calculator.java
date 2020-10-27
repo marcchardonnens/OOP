@@ -11,7 +11,7 @@ public class Calculator implements ICalculator {
      * @return Summe der integers.
      */
     @Override
-    public int addition(int a, int b) {
-        return a + b;
+    public long addition(int a, int b) {
+        return (long) a + b;
     }
 }

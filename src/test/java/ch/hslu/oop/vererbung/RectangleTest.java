@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RectangleTest {
 
-    Rectangle rectangle;
+    private Rectangle rectangle;
 
     @BeforeEach
     public void SetUp()

@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TemperaturTest {
 
-    Temperatur temperatur;
+    private Temperatur temperatur;
 
     @BeforeEach
     public void SetUp()

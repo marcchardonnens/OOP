@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SquareTest {
 
-    Square square;
+    private Square square;
 
     @BeforeEach
     public void SetUp()

@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CircleTest {
 
-    Circle circle;
+    private Circle circle;
 
     @BeforeEach
     public void SetUp()

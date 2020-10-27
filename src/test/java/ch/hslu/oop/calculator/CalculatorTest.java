@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
 
-    ICalculator calculator = new Calculator();
+    private ICalculator calculator = new Calculator();
 
 
     @Test
@@ -15,6 +15,6 @@ class CalculatorTest {
         assertEquals(3,calculator.addition(0,3));
         assertEquals(-4,calculator.addition(-4,0));
         assertEquals(0, calculator.addition(0,0));
-
+        assertEquals(3000000000L ,calculator.addition(1500000000,1500000000));
     }
 }

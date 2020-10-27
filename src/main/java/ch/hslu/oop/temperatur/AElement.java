@@ -14,7 +14,7 @@ public abstract class AElement {
         return tempMeltingPoint;
     }
 
-    public Aggregatszustand GetAggregatszustand(final Temperatur temperatur)
+    public Aggregatszustand getAggregatszustand(final Temperatur temperatur)
     {
         if(tempMeltingPoint.isHigherThan(temperatur))
         {

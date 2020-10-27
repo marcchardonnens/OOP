@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MotorTest {
 
-    Motor motor = new Motor(1000);
+    private Motor motor = new Motor(1000);
 
     @Test
     void switchOn() {

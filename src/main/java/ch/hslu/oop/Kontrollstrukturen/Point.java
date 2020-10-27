@@ -143,7 +143,7 @@ public class Point {
      * @return Gibt true zurück wenn die Koordinaten beider Objekte übereinstimmen
      */
     @Override
-    public boolean equals(final Object obj) {
+    public final boolean equals(final Object obj) {
         if (this == obj) {
             return true;
         }
@@ -158,7 +158,7 @@ public class Point {
      * @return Gibt den Hashwert zurück
      */
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         return Objects.hash(x, y);
     }
 }

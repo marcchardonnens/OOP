@@ -8,7 +8,7 @@ public interface ICalculator {
      * @param b Integer 2
      * @return Summe der integers.
      */
-    int addition(final int a, final int b);
+    long addition(final int a, final int b);
 
 
 

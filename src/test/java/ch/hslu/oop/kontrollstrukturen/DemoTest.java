@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DemoTest {
 
-    Demo demo = new Demo();
+    private Demo demo = new Demo();
 
     @Test
     void max() {

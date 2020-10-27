@@ -119,7 +119,7 @@ final class PointTest {
      */
     @Test
     void testEqualsContract() {
-        EqualsVerifier.forClass(Point.class).verify();
+        EqualsVerifier.simple().forClass(Point.class).verify();
     }
 
     /**

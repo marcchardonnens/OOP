@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LinieTest {
 
-    Linie linie;
+    private Linie linie;
 
     @BeforeEach
     public void SetUp()
