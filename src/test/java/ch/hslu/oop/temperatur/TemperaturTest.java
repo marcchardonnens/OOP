@@ -71,4 +71,16 @@ class TemperaturTest {
     void isLowerThan() {
         assertTrue(temperatur.isLowerThan(new Temperatur(101)));
     }
+
+    @Test
+    void testEquals() {
+        assertTrue(temperatur.equals(new Temperatur(100)));
+        assertFalse(temperatur.equals(new Temperatur(99)));
+    }
+
+    @Test
+    void testHashCode() {
+        assertEquals(new Temperatur(100).hashCode(),temperatur.hashCode());
+        assertNotEquals(new Temperatur(101).hashCode(),temperatur.hashCode());
+    }
 }

@@ -1,5 +1,7 @@
 package ch.hslu.oop.temperatur;
 
+import java.util.Objects;
+
 /**
  * Beispiel einer einfachen Klasse Temperatur
  */
@@ -105,5 +107,16 @@ public class Temperatur {
         return this.tempCelsius < temp.tempCelsius;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Temperatur that = (Temperatur) o;
+        return Float.compare(that.tempCelsius, tempCelsius) == 0;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(tempCelsius);
+    }
 }

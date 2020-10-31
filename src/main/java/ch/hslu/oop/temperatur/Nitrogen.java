@@ -4,9 +4,7 @@ public class Nitrogen extends AElement {
 
      public Nitrogen()
      {
-         this.tempMeltingPoint = new Temperatur(-210);
-         this.tempBoilingPoint = new Temperatur(-195);
-         this.shortName = "N";
+         super(new Temperatur(-210),new Temperatur(-195),"N");
      }
 
 

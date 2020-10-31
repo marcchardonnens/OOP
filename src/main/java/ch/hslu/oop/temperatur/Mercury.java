@@ -4,9 +4,7 @@ public class Mercury extends AElement {
 
     public Mercury()
     {
-        this.tempMeltingPoint = new Temperatur(-38);
-        this.tempBoilingPoint = new Temperatur(356);
-        this.shortName = "Hg";
+        super(new Temperatur(-38),new Temperatur(356),"Hg");
     }
 
     @Override

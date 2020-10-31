@@ -1,5 +1,6 @@
 package ch.hslu.oop.temperatur;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -40,5 +41,23 @@ class AElementTest {
                 ", shortName='" + "Hg" + '\'' +
                 '}'
                 + "ACHTUNG: GIFTIG!!", new Mercury().toString());
+    }
+
+    @Test
+    void testEquals() {
+        assertTrue(new Lead().equals(new Lead()));
+        assertTrue(new Mercury().equals(new Mercury()));
+        assertTrue(new Nitrogen().equals(new Nitrogen()));
+    }
+
+    @Test
+    void testHashCode() {
+        assertEquals(new Lead().hashCode(), new Lead().hashCode());
+        assertEquals(new Mercury().hashCode(), new Mercury().hashCode());
+        assertEquals(new Nitrogen().hashCode(), new Nitrogen().hashCode());
+    }
+
+    @Test void testEqualsContract(){
+        EqualsVerifier.forClass(AElement.class).verify();
     }
 }
