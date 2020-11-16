@@ -60,4 +60,11 @@ class AElementTest {
     @Test void testEqualsContract(){
         EqualsVerifier.forClass(AElement.class).verify();
     }
+
+    @Test
+    void compareTo() {
+        assertEquals(0, new Mercury().compareTo(new Mercury()));
+        assertTrue(0 > new Nitrogen().compareTo(new Lead()));
+        assertTrue(0 < new Lead().compareTo(new Mercury()));
+    }
 }

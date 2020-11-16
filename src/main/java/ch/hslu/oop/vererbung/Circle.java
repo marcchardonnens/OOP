@@ -1,6 +1,6 @@
 package ch.hslu.oop.vererbung;
 
-public class Circle extends Shape {
+public final class Circle extends Shape {
 
     private int diameter;
 

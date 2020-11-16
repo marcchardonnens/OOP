@@ -1,6 +1,6 @@
 package ch.hslu.oop.vererbung;
 
-public class Rectangle extends Shape {
+public final class Rectangle extends Shape {
     protected int width;
     protected int height;
     public Rectangle(final int x, final int y,

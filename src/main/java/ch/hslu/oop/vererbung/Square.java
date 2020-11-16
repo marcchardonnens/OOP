@@ -1,6 +1,6 @@
 package ch.hslu.oop.vererbung;
 
-public class Square extends Shape {
+public final class Square extends Shape {
     private int side;
 
     public Square(final int x,final int y, final int sideLength) {

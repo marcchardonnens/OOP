@@ -66,7 +66,15 @@ class PersonTest {
     }
 
     @Test
-    void testEqualsContract(){
+    void testEqualsContract() {
         EqualsVerifier.simple().forClass(Person.class).verify();
+    }
+
+
+    @Test
+    void compareTo() {
+        assertEquals(0, new Person(1,"vorname","nachname").compareTo(new Person(1, "vorname","nachname")));
+        assertTrue(0 > new Person(4, "Anne", "Ackermann").compareTo(new Person(2, "Jonas", "Becker")));
+        assertTrue(0 < new Person(6, "Manuel", "Peter").compareTo(new Person(3,"Aaron", "Müller")));
     }
 }

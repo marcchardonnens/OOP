@@ -83,4 +83,21 @@ class TemperaturTest {
         assertEquals(new Temperatur(100).hashCode(),temperatur.hashCode());
         assertNotEquals(new Temperatur(101).hashCode(),temperatur.hashCode());
     }
+
+    @Test
+    void compareTo() {
+        assertEquals(0, temperatur.compareTo(new Temperatur(100)));
+        assertTrue(0 > temperatur.compareTo(new Temperatur(150)));
+        assertTrue(0 < temperatur.compareTo(new Temperatur(40)));
+    }
+
+    @Test
+    void celsiusToKelvin() {
+        assertEquals(-173.15f, Temperatur.CelsiusToKelvin(100));
+    }
+
+    @Test
+    void kelvinToCelsius() {
+        assertEquals(273.15f,Temperatur.KelvinToCelsius(0));
+    }
 }
