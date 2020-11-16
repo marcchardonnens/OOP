@@ -20,7 +20,7 @@ public final class Temperatur implements Comparable<Temperatur> {
      * Exercise 1.3 h)
      * Sets default value of 20.0 degrees in Celsius
      */
-    Temperatur() {
+    public Temperatur() {
         this.tempCelsius = 20.0f;
     }
 
@@ -29,7 +29,7 @@ public final class Temperatur implements Comparable<Temperatur> {
      * @param tempCelsius: Sets default value in Celsius
      *                     If the Value is lower than -273.15 than the temperatur is automatically set to that number.
      */
-    Temperatur(float tempCelsius) {
+    public Temperatur(float tempCelsius) {
         this.tempCelsius = Math.max(tempCelsius, -KELVINOFFSET);;
     }
 
