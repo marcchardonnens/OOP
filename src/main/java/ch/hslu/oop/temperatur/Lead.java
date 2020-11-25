@@ -4,7 +4,7 @@ public class Lead extends AElement {
 
     public Lead()
     {
-        super((short) 82, new Temperatur(327),new Temperatur(1749),"Pb");
+        super((short) 82, Temperatur.createFromCelsius(327), Temperatur.createFromCelsius(1749),"Pb");
     }
 
 

@@ -12,7 +12,7 @@ class TemperaturTest {
     @BeforeEach
     public void SetUp()
     {
-        temperatur = new Temperatur(100);
+        temperatur = Temperatur.createFromCelsius(100);
     }
 
     @Test
@@ -21,35 +21,13 @@ class TemperaturTest {
     }
 
     @Test
-    void setTempCelsius() {
-        temperatur.setTempCelsius(200);
-        assertEquals(200,temperatur.getTempCelsius());
-    }
-
-    @Test
     void getTempKelvin() {
-        assertEquals(373.15, temperatur.getTempKelvin(), 0.0001f);
+        assertEquals(373.15f, temperatur.getTempKelvin(), 0.001f);
     }
 
     @Test
     void getTempFarhenheit() {
         assertEquals(212, temperatur.getTempFarhenheit());
-    }
-
-    @Test
-    void addTemp() {
-        temperatur.addTemp(50);
-        assertEquals(150, temperatur.getTempCelsius());
-        temperatur.addTemp(-25);
-        assertEquals(125, temperatur.getTempCelsius());
-    }
-
-    @Test
-    void subtractTemp() {
-        temperatur.subtractTemp(50);
-        assertEquals(50, temperatur.getTempCelsius());
-        temperatur.subtractTemp(-40);
-        assertEquals(90, temperatur.getTempCelsius());
     }
 
     @Test
@@ -64,40 +42,50 @@ class TemperaturTest {
 
     @Test
     void isHigherThan() {
-        assertTrue(temperatur.isHigherThan(new Temperatur(99)));
+        assertTrue(temperatur.isHigherThan(Temperatur.createFromCelsius(99)));
     }
 
     @Test
     void isLowerThan() {
-        assertTrue(temperatur.isLowerThan(new Temperatur(101)));
+        assertTrue(temperatur.isLowerThan(Temperatur.createFromCelsius(101)));
     }
 
     @Test
     void testEquals() {
-        assertTrue(temperatur.equals(new Temperatur(100)));
-        assertFalse(temperatur.equals(new Temperatur(99)));
+        assertTrue(temperatur.equals(Temperatur.createFromCelsius(100)));
+        assertFalse(temperatur.equals(Temperatur.createFromCelsius(99)));
     }
 
     @Test
     void testHashCode() {
-        assertEquals(new Temperatur(100).hashCode(),temperatur.hashCode());
-        assertNotEquals(new Temperatur(101).hashCode(),temperatur.hashCode());
+        assertEquals(Temperatur.createFromCelsius(100).hashCode(),temperatur.hashCode());
+        assertNotEquals(Temperatur.createFromCelsius(101).hashCode(),temperatur.hashCode());
     }
 
     @Test
     void compareTo() {
-        assertEquals(0, temperatur.compareTo(new Temperatur(100)));
-        assertTrue(0 > temperatur.compareTo(new Temperatur(150)));
-        assertTrue(0 < temperatur.compareTo(new Temperatur(40)));
+        assertEquals(0, temperatur.compareTo(Temperatur.createFromCelsius(100)));
+        assertTrue(0 > temperatur.compareTo(Temperatur.createFromCelsius(150)));
+        assertTrue(0 < temperatur.compareTo(Temperatur.createFromCelsius(40)));
     }
 
     @Test
     void celsiusToKelvin() {
-        assertEquals(-173.15f, Temperatur.CelsiusToKelvin(100));
+        assertEquals(373.15f, Temperatur.CelsiusToKelvin(100));
     }
 
     @Test
     void kelvinToCelsius() {
-        assertEquals(273.15f,Temperatur.KelvinToCelsius(0));
+        assertEquals(-273.15f,Temperatur.KelvinToCelsius(0));
+    }
+
+    @Test
+    void createFromCelsius() {
+        assertThrows(IllegalArgumentException.class, () -> Temperatur.createFromCelsius(-300),"Mindest Temparatur ist -273.15");
+    }
+
+    @Test
+    void createFromKelvin() {
+        assertEquals(-273.15f, Temperatur.createFromKelvin(0f).getTempCelsius() ,0.0001f);
     }
 }

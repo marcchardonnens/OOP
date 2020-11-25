@@ -19,7 +19,7 @@ class AElementTest {
 
     @Test
     void getAggregatszustand() {
-        assertEquals(Aggregatszustand.fest, new Lead().getAggregatszustand(new Temperatur(100)));
+        assertEquals(Aggregatszustand.fest, new Lead().getAggregatszustand(Temperatur.createFromCelsius(100)));
     }
 
     @Test

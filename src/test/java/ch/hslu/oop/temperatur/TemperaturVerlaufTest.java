@@ -16,40 +16,40 @@ class TemperaturVerlaufTest {
 
     @Test
     void add() {
-        assertTrue(temperaturVerlauf.add(new Temperatur(100)));
+        assertTrue(temperaturVerlauf.add(Temperatur.createFromCelsius(100)));
         assertEquals(1, temperaturVerlauf.getCount());
     }
 
     @Test
     void clear() {
-        temperaturVerlauf.add(new Temperatur(100));
-        temperaturVerlauf.add(new Temperatur(100));
-        temperaturVerlauf.add(new Temperatur(100));
-        temperaturVerlauf.add(new Temperatur(100));
-        temperaturVerlauf.add(new Temperatur(100));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(100));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(100));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(100));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(100));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(100));
         temperaturVerlauf.clear();
         assertEquals(0, temperaturVerlauf.getCount());
     }
 
     @Test
     void getCount() {
-        temperaturVerlauf.add(new Temperatur(50));
-        temperaturVerlauf.add(new Temperatur(50));
-        temperaturVerlauf.add(new Temperatur(50));
-        temperaturVerlauf.add(new Temperatur(50));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(50));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(50));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(50));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(50));
         assertEquals(4, temperaturVerlauf.getCount());
     }
 
     @Test
     void getMax() {
-        temperaturVerlauf.add(new Temperatur(10));
-        temperaturVerlauf.add(new Temperatur(12));
-        temperaturVerlauf.add(new Temperatur(15));
-        temperaturVerlauf.add(new Temperatur(-2));
-        temperaturVerlauf.add(new Temperatur(12));
-        temperaturVerlauf.add(new Temperatur(42));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(10));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(12));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(15));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(-2));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(12));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(42));
 
-        assertEquals(new Temperatur(42), temperaturVerlauf.getMax());
+        assertEquals(Temperatur.createFromCelsius(42), temperaturVerlauf.getMax());
     }
 
     @Test
@@ -62,14 +62,14 @@ class TemperaturVerlaufTest {
 
     @Test
     void getMin() {
-        temperaturVerlauf.add(new Temperatur(10));
-        temperaturVerlauf.add(new Temperatur(12));
-        temperaturVerlauf.add(new Temperatur(15));
-        temperaturVerlauf.add(new Temperatur(-2));
-        temperaturVerlauf.add(new Temperatur(12));
-        temperaturVerlauf.add(new Temperatur(42));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(10));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(12));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(15));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(-2));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(12));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(42));
 
-        assertEquals(new Temperatur(-2), temperaturVerlauf.getMin());
+        assertEquals(Temperatur.createFromCelsius(-2), temperaturVerlauf.getMin());
     }
 
     @Test
@@ -81,11 +81,11 @@ class TemperaturVerlaufTest {
     @Test
     void getAverage() {
 
-        temperaturVerlauf.add(new Temperatur(15.5f));
-        temperaturVerlauf.add(new Temperatur(10.5f));
-        temperaturVerlauf.add(new Temperatur(5.5f));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(15.5f));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(10.5f));
+        temperaturVerlauf.add(Temperatur.createFromCelsius(5.5f));
 
-        assertEquals(new Temperatur(10.5f), temperaturVerlauf.getAverage());
+        assertEquals(Temperatur.createFromCelsius(10.5f), temperaturVerlauf.getAverage());
 
     }
 }

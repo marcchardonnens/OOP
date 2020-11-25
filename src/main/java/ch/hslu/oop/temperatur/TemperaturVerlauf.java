@@ -29,7 +29,7 @@ public class TemperaturVerlauf {
         }
         catch (NoSuchElementException e)
         {
-            return new Temperatur(0);
+            return Temperatur.createFromCelsius(0);
         }
     }
 
@@ -41,7 +41,7 @@ public class TemperaturVerlauf {
         }
         catch (NoSuchElementException e)
         {
-            return new Temperatur(0);
+            return Temperatur.createFromCelsius(0);
         }
     }
 
@@ -54,7 +54,7 @@ public class TemperaturVerlauf {
             f += iter.next().getTempCelsius();
         }
 
-        return new Temperatur((f / temperaturen.size()));
+        return Temperatur.createFromCelsius((f / temperaturen.size()));
 
     }
 

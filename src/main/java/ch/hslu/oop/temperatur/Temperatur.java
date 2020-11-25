@@ -1,5 +1,8 @@
 package ch.hslu.oop.temperatur;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -9,18 +12,20 @@ import java.util.Objects;
  */
 public final class Temperatur implements Comparable<Temperatur> {
 
+    private static final Logger LOG = LogManager.getLogger(Temperatur.class);
+
     public static final float KELVINOFFSET = 273.15f;
     /**
      * Exercise 1.3 a)
      * Stores current Temperatur Value in Celsius
      */
-    private float tempCelsius;
+    private final float tempCelsius;
 
     /**
      * Exercise 1.3 h)
      * Sets default value of 20.0 degrees in Celsius
      */
-    public Temperatur() {
+    private Temperatur() {
         this.tempCelsius = 20.0f;
     }
 
@@ -29,8 +34,26 @@ public final class Temperatur implements Comparable<Temperatur> {
      * @param tempCelsius: Sets default value in Celsius
      *                     If the Value is lower than -273.15 than the temperatur is automatically set to that number.
      */
-    public Temperatur(float tempCelsius) {
-        this.tempCelsius = Math.max(tempCelsius, -KELVINOFFSET);;
+    private Temperatur(float tempCelsius) {
+        this.tempCelsius = tempCelsius;
+    }
+
+    public static Temperatur createFromCelsius(final float tempCelsius)
+    {
+        if(tempCelsius < -KELVINOFFSET)
+        {
+
+            IllegalArgumentException iae = new IllegalArgumentException("Mindest Temparatur ist -" + Float.toString(KELVINOFFSET));
+            LOG.error(iae);
+            throw iae;
+
+        }
+        return new Temperatur(tempCelsius);
+    }
+
+    public static Temperatur createFromKelvin(final  float tempKelvin)
+    {
+        return createFromCelsius(KelvinToCelsius(tempKelvin));
     }
 
     /**
@@ -42,20 +65,11 @@ public final class Temperatur implements Comparable<Temperatur> {
     }
 
     /**
-     * Exercise 1.3 d)
-     * @param tempCelsius: Sets current Temperatur to the new Temperatur in Celsius.
-     *                     If the Value is lower than -273.15 than the temperatur is automatically set to that number.
-     */
-    public void setTempCelsius(float tempCelsius) {
-        this.tempCelsius = Math.max(tempCelsius, -KELVINOFFSET);
-    }
-
-    /**
      * Exercise 1.3 e)
      * @return float: Returns current Temperatur in Kelvin
      */
     public float getTempKelvin() {
-        return CelsiusToKelvin(tempCelsius);
+        return CelsiusToKelvin(this.tempCelsius);
     }
 
     /**
@@ -66,26 +80,6 @@ public final class Temperatur implements Comparable<Temperatur> {
         return this.tempCelsius * 1.8f + 32.0f;
     }
 
-    /**
-     * Exercise 1.3 g)
-     * @param temp: Adds a value to the current temperatur in Celsius or Kelvin.
-     *              If value the result is lower than -273.15 then the value will be set to that number.
-     */
-    public void addTemp(float temp) {
-        float newTemp = this.tempCelsius + temp;
-        this.tempCelsius = Math.max(newTemp, -KELVINOFFSET);
-    }
-
-
-    /**
-     * Exercise 1.3 g)
-     * @param temp: Subtracts a value to the current temperatur in Celsius or Kelvin.
-     *              If value the result is lower than -273.15 then the value will be set to that number.
-     */
-    public void subtractTemp(float temp)
-    {
-        addTemp(temp * -1);
-    }
 
     @Override
     public String toString() {
@@ -167,13 +161,16 @@ public final class Temperatur implements Comparable<Temperatur> {
         return Float.compare(tempCelsius, o.tempCelsius);
     }
 
+
+
+
     public static float CelsiusToKelvin(float tempCelsius)
     {
-        return tempCelsius - KELVINOFFSET;
+        return (tempCelsius + KELVINOFFSET);
     }
 
     public static float KelvinToCelsius(float tempKelvin)
     {
-        return tempKelvin + KELVINOFFSET;
+        return (tempKelvin - KELVINOFFSET);
     }
 }
