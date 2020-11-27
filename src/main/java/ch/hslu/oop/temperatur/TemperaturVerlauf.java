@@ -5,9 +5,23 @@ import java.util.*;
 public class TemperaturVerlauf {
 
     private ArrayList<Temperatur> temperaturen = new ArrayList<Temperatur>();
+    private ArrayList<ITemperaturEventListener> eventListeners = new ArrayList<>();
 
     public boolean add(Temperatur temperatur)
     {
+        if(getCount() > 0)
+        {
+            if(temperatur.getTempCelsius() > getMax().getTempCelsius())
+            {
+                fireTemperaturEvent(new TemperaturEvent(this, TemperaturEventType.NEWMAXTEMP));
+            }
+            if(temperatur.getTempCelsius() < getMin().getTempCelsius())
+            {
+                fireTemperaturEvent(new TemperaturEvent(this, TemperaturEventType.NEWMINTEMP));
+            }
+        }
+
+
         return temperaturen.add(temperatur);
     }
 
@@ -58,6 +72,23 @@ public class TemperaturVerlauf {
 
     }
 
+    public boolean addTemperaturListener(ITemperaturEventListener listener)
+    {
+        return eventListeners.add(listener);
+    }
 
+    public boolean removeTemperaturListener(ITemperaturEventListener listener)
+    {
+        return eventListeners.remove(listener);
+    }
+
+    private  void fireTemperaturEvent(final TemperaturEvent evt)
+    {
+        for(final ITemperaturEventListener listener : eventListeners)
+        {
+            listener.temperaturEvent(evt);
+        }
+
+    }
 
 }
