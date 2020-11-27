@@ -72,6 +72,10 @@ public class TemperaturVerlauf {
 
     }
 
+    public ArrayList<Temperatur> getTemperaturen() {
+        return temperaturen;
+    }
+
     public boolean addTemperaturListener(ITemperaturEventListener listener)
     {
         return eventListeners.add(listener);
