@@ -1,38 +1,55 @@
 package ch.hslu.oop.schnittstellen;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Motor extends ASwitchable {
 
-    private boolean isOn = false;
-    private final int rpm;
+    private int rpm = 0;
 
-    public Motor(int rpm) {
+    private  final List<PropertyChangeListener> eventListeners = new ArrayList<>();
+    public Motor() {
         name = "Motor" + switchCount;
+    }
+
+    public int getRpm() {
+        return rpm;
+    }
+
+    public void setRpm(final int rpm){
         this.rpm = rpm;
     }
 
-    public void arbeiten()
-    {
-
-    }
-
-
     @Override
     public void switchOn() {
-        isOn = true;
+        super.switchOn();
+        firePropertyChangedEvent(new PropertyChangeEvent(this,"MotorOn",false, true));
     }
 
     @Override
     public void switchOff() {
-        isOn = false;
+        super.switchOff();
+        firePropertyChangedEvent(new PropertyChangeEvent(this,"MotorOff",true, false));
     }
 
-    @Override
-    public boolean isSwitchedOn() {
-        return isOn;
+    public boolean addPropertyChangeListener(PropertyChangeListener listener)
+    {
+        return eventListeners.add(listener);
     }
 
-    @Override
-    public boolean isSwitchedOff() {
-        return !isOn;
+    public boolean removePropertyChangedListener(PropertyChangeListener listener)
+    {
+        return eventListeners.remove(listener);
+    }
+
+    private  void firePropertyChangedEvent(final PropertyChangeEvent evt)
+    {
+        for(final PropertyChangeListener listener : eventListeners)
+        {
+            listener.propertyChange(evt);
+        }
+
     }
 }

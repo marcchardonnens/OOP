@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MotorTest {
 
-    private Motor motor = new Motor(1000);
+    private Motor motor = new Motor();
 
     @Test
     void switchOn() {
@@ -30,8 +30,4 @@ class MotorTest {
         assertTrue(motor.isSwitchedOff());
     }
 
-    @Test
-    void arbeiten() {
-        motor.arbeiten();
-    }
 }

@@ -2,9 +2,9 @@ package ch.hslu.oop.schnittstellen;
 
 public abstract class ASwitchable implements ICountingSwitchable, INamed {
 
-    boolean isOn;
-    long switchCount = 0;
-    String name;
+    protected boolean isOn = false;
+    protected long switchCount = 0;
+    protected String name;
 
     @Override
     public void switchOn() {
