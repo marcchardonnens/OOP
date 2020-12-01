@@ -43,7 +43,7 @@ public class ExceptionhandlingDemo {
             LOG.error(ioException);
         }
 
-        
+
         tempVerlauf.addTemperaturListener(evt -> {LOG.info(evt);});
 
         Scanner scanner = new Scanner(System.in);
