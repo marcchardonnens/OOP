@@ -40,6 +40,7 @@ public class ReadCSV {
             LOG.info(verlauf.getMin());
             LOG.info(verlauf.getMax());
             LOG.info(verlauf.getAverage());
+            LOG.info(verlauf.getCount());
 
 
         }
